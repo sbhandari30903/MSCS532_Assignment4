@@ -19,4 +19,4 @@ The change priority task takes O(n). To change priority based on the task_it, it
 To run this locally go to PriorityQueue dir and run:
     python3 priorityqueue.py
 
-Heapsort and priority queue.pdf is the analysis report.
+Heapsort+priority_queue.pdf is the analysis report.
