@@ -29,7 +29,7 @@ def extract_max(heap):
     heapify_down(heap, 0)
     return max_task
 
-#same as heapsort make max heap based on priority from i th index O(logn)
+#same as heapsort make max heap based on priority from i th index. O(logn)
 def heapify_down(heap, i):
     size = len(heap)
     largest = i
@@ -45,7 +45,7 @@ def heapify_down(heap, i):
         heap[i], heap[largest] = heap[largest], heap[i]
         heapify_down(heap, largest)
 
-#change the priority of the task based on task id O(nlogn)
+#change the priority of the task based on task id. O(nlogn)
 def change_priority(heap, task_id, new_priority):
     #iterates over task to find id O(n)
     task_index = -1

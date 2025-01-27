@@ -1,3 +1,7 @@
+import time
+import numpy as np
+import matplotlib.pyplot as plt
+
 #############################################################################
 #creates a max haep 
 #arr -> array out of which max heap is created
@@ -32,8 +36,41 @@ def heapsort(arr):
         arr[0], arr[i] = arr[i], arr[0]
         heapify(arr, i, 0)
 
+def gettime(lis):
+    t1 = time.time()
+    heapsort(lis)
+    t2 = time.time()
+    return t2 - t1
+
 if __name__ == "__main__":
-    sample_array = [12, 11, 13, 5, 6, 7]
-    print("Original array:", sample_array)
-    heapsort(sample_array)
-    print("Sorted array:", sample_array)
+
+    unsorted_array_list = np.random.randint(1, 10000, 990).tolist() 
+    print("Printing first 10 elements of unsorted_array_list before and after:") 
+    print(unsorted_array_list[:10]) 
+    t1 = gettime(unsorted_array_list)
+    print(unsorted_array_list[:10]) 
+    
+    sorted_array_list = np.arange(1,991).tolist()
+    print("Printing first 10 elements of sorted_array_list before and after:") 
+    print(sorted_array_list[:10]) 
+    t2 = gettime(sorted_array_list)
+    print(sorted_array_list[:10]) 
+    
+    reverse_sorted_array_list = np.arange(990, 0, -1).tolist()
+    print("Printing first 10 elements of reverse_sorted_array_list before and after:")
+    print(reverse_sorted_array_list[:10]) 
+    t3 = gettime(reverse_sorted_array_list)
+    print(reverse_sorted_array_list[:10])
+    
+    t = [t1, t2, t3]
+    arrtype = ['unsorted', 'sorted', 'reverse']
+
+    plt.figure(figsize=(8,6))
+    plt.plot(arrtype, t, label='Time taken to sort different types of array')
+    plt.xlabel('Array type')
+    plt.ylabel('time taken')
+    plt.title('Heap Sort')
+    plt.legend()
+    plt.savefig('heapsort.png')
+    
+
